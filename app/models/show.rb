@@ -5,6 +5,8 @@ class Show < ActiveRecord::Base
   has_many :characters
   
   def actors_list
-    binding.pry
+    self.characters.map do |character|
+      character.actor.full_name
+    end
   end
 end
